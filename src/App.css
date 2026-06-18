@@ -1,0 +1,189 @@
+body {
+  margin: 0;
+  background: #0f1117;
+  color: white;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.gallery {
+  padding: 18px;
+}
+
+.hero {
+  text-align: center;
+  padding: 22px 0 30px;
+}
+
+.eyebrow {
+  color: #ff4da6;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin: 10px 0;
+}
+
+.hero p {
+  color: #b8bcc8;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #1a1c24;
+  color: white;
+  border: 1px solid #303341;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.thumb {
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  background: black;
+}
+
+.title {
+  padding: 10px 10px 4px;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.meta {
+  padding: 0 10px 12px;
+  font-size: 0.78rem;
+  color: #a8acb8;
+}
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  background: #090a0f;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+}
+
+.close {
+  position: absolute;
+  top: 4px;
+  right: 12px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 38px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.viewerTop {
+  text-align: center;
+  padding: 4px 42px 4px;
+}
+
+.viewerTop h2 {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.viewerTop p {
+  margin: 2px 0 0;
+  color: #aaa;
+  font-size: 0.78rem;
+}
+
+.imageStage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y pinch-zoom;
+}
+
+.viewerImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  touch-action: pinch-zoom;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  padding: 6px 0 8px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #555;
+}
+
+.dot.active {
+  background: #ff4da6;
+}
+
+.mobileNav {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .gallery {
+    padding: 32px;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .thumb {
+    height: 340px;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: #ff4da6;
+  }
+
+  .viewerTop h2 {
+    font-size: 1.4rem;
+  }
+
+  .mobileNav {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 6px;
+  }
+
+  .mobileNav button {
+    flex: 1;
+    background: #1f2230;
+    color: white;
+    border: 1px solid #44495c;
+    border-radius: 999px;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
