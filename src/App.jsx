@@ -249,7 +249,7 @@ function App() {
             <textarea
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              placeholder="What would you change? Please mention the page number if relevant."
+              placeholder="What would you change?"
             />
 
             <button className="submitButton" onClick={submitFeedback}>
