@@ -156,10 +156,15 @@ body {
   align-items: center;
   justify-content: center;
   gap: 18px;
-  padding: 8px 0 10px;
+  padding: 8px 12px 10px;
   border-top: 1px solid #222632;
 }
-
+.swipeHint {
+  color: #aeb4c4;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  font-weight: 500;
+}
 .arrowButton {
   background: #2c2f3a;
   border: 1px solid #555b6c;

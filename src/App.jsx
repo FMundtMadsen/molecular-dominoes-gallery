@@ -187,28 +187,34 @@ function App() {
           </div>
 
           <div className="dotsWrapper">
-            {viewer.images.length > 1 && (
-              <button className="arrowButton" onClick={previousImage}>
-                ←
-              </button>
-            )}
+  <button
+    className="arrowButton"
+    onClick={prevImage}
+  >
+    ←
+  </button>
 
-            <div className="dots">
-              {viewer.images.map((_, i) => (
-                <span
-                  key={i}
-                  className={i === viewer.index ? "dot active" : "dot"}
-                />
-              ))}
-            </div>
+  <div className="dots">
+    {images.map((_, index) => (
+      <button
+        key={index}
+        className={index === currentImage ? "dot active" : "dot"}
+        onClick={() => setCurrentImage(index)}
+      />
+    ))}
+  </div>
 
-            {viewer.images.length > 1 && (
-              <button className="arrowButton" onClick={nextImage}>
-                →
-              </button>
-            )}
-          </div>
+  <button
+    className="arrowButton"
+    onClick={nextImage}
+  >
+    →
+  </button>
 
+  <span className="swipeHint">
+    ↓ Swipe down to rate
+  </span>
+</div>
           <section className="feedbackPanel">
             <div className="feedbackTitle">Review this figure</div>
 
