@@ -61,6 +61,13 @@ function App() {
     }));
   }
 
+  function goToImage(index) {
+    setViewer((current) => ({
+      ...current,
+      index
+    }));
+  }
+
   function handleTouchStart(e) {
     setTouchStart(e.touches[0].clientX);
   }
@@ -161,7 +168,7 @@ function App() {
         ))}
       </div>
 
-      {viewer && (
+      {viewer && currentImage && (
         <div className="viewer">
           <button className="close" onClick={closeViewer}>
             ×
@@ -187,34 +194,31 @@ function App() {
           </div>
 
           <div className="dotsWrapper">
-  <button
-    className="arrowButton"
-    onClick={prevImage}
-  >
-    ←
-  </button>
+            {viewer.images.length > 1 && (
+              <button className="arrowButton" onClick={previousImage}>
+                ←
+              </button>
+            )}
 
-  <div className="dots">
-    {images.map((_, index) => (
-      <button
-        key={index}
-        className={index === currentImage ? "dot active" : "dot"}
-        onClick={() => setCurrentImage(index)}
-      />
-    ))}
-  </div>
+            <div className="dots">
+              {viewer.images.map((_, index) => (
+                <button
+                  key={index}
+                  className={index === viewer.index ? "dot active" : "dot"}
+                  onClick={() => goToImage(index)}
+                />
+              ))}
+            </div>
 
-  <button
-    className="arrowButton"
-    onClick={nextImage}
-  >
-    →
-  </button>
+            {viewer.images.length > 1 && (
+              <button className="arrowButton" onClick={nextImage}>
+                →
+              </button>
+            )}
 
-  <span className="swipeHint">
-    ↓ Swipe down to rate
-  </span>
-</div>
+            <span className="swipeHint">↓ Swipe down to rate</span>
+          </div>
+
           <section className="feedbackPanel">
             <div className="feedbackTitle">Review this figure</div>
 
